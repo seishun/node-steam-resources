@@ -42,6 +42,7 @@ Steam.Unified = {
     'steamclient/steammessages_gamenotifications.steamclient.proto',
     'steamclient/steammessages_gameservers.steamclient.proto',
     'steamclient/steammessages_linkfilter.steamclient.proto',
+    'steamclient/steammessages_inventory.steamclient.proto',
     'steamclient/steammessages_offline.steamclient.proto',
     'steamclient/steammessages_parental.steamclient.proto',
     'steamclient/steammessages_partnerapps.steamclient.proto',
