@@ -203,16 +203,14 @@ function emitClassDecoder(cnode) {
         // assume protobuf
         object[symname] = typestr.split('.').slice(1).reduce(function(obj, prop) {
           return obj[prop];
-        }, Steam).decode(buffer.slice(buffer.offset, buffer.offset + object[prop.flagsOpt]));
-        buffer.skip(object[prop.flagsOpt]);
+        }, Steam).decode(buffer.readBytes(object[prop.flagsOpt]));
       } else {
         if (!readerTypeMap[typestr]) {
           typestr = code_generator.getTypeOfSize(size, exports.supportsUnsignedTypes());
         }
         
         if (prop.flagsOpt) {
-          object[symname] = buffer.slice(buffer.offset, buffer.offset + +prop.flagsOpt);
-          buffer.skip(+prop.flagsOpt);
+          object[symname] = buffer.readBytes(+prop.flagsOpt);
         } else {
           object[symname] = buffer['read' + readerTypeMap[typestr]]();
           if (~['protomask', 'protomaskgc'].indexOf(prop.flags)) {
