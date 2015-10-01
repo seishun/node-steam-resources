@@ -6,8 +6,8 @@
     "prepublish": "svn checkout https://github.com/SteamRE/SteamKit/trunk/Resources/Protobufs protobufs && svn checkout https://github.com/SteamRE/SteamKit/trunk/Resources/SteamLanguage steam_language"
   },
   "dependencies": {
-    "bytebuffer": "^4.0",
-    "protobufjs": "^4.0"
+    "bytebuffer": "^4.1",
+    "protobufjs": "^4.1"
   },
   "repository": {
     "type": "git",
