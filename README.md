@@ -35,18 +35,18 @@ For example, the `CMsgGCTopCustomGamesList` message from [dota_gcmessages_common
 For each class in SteamLanguage, there is an equivalently named class in `Steam.Internal`. They are intended to implement a subset of the API provided by ProtoBuf.js message classes. Namely, for a class `MsgGabe`:
 
 * An `MsgGabe` instance has an equivalently named property for each non-const member of `MsgGabe` with the type as follows (modifiers like `boolmarshal` are ignored):
-  * byte<> members: [ByteBuffer.js](https://github.com/dcodeIO/ByteBuffer.js) ^4.1 objects
+  * byte<> members: [ByteBuffer.js](https://github.com/dcodeIO/ByteBuffer.js) ^5.0 objects
   * `long` and `ulong` members: [ByteBuffer.Long](https://github.com/dcodeIO/Long.js) objects
   * Other numeric members: Number
   * Protobuf message members: message class instances
 * For each const member of `MsgGabe`, there is an equivalently named property on the `MsgGabe` class with an equivalent value.
-* `MsgGabe.decode(buf)` returns an `MsgGabe` instance deserialized from `buf`. `buf` can be either a Buffer or a ByteBuffer.js ^4.1 instance. In the latter case, it decodes starting from `buf.offset` and increments it by message size.
+* `MsgGabe.decode(buf)` returns an `MsgGabe` instance deserialized from `buf`. `buf` can be either a Buffer or a ByteBuffer.js ^5.0 instance. In the latter case, it decodes starting from `buf.offset` and increments it by message size.
 * `new MsgGabe(obj)` creates an `MsgGabe` instance from an object. `new MsgGabe()` is equivalent to `new MsgGabe({})`. For each non-const member of `MsgGabe`, if there is an equivalently named property in `obj`, it sets the instance property to the (possibly converted) value of the property in `obj`, otherwise to the default value. In addition to the types listed above, `obj` properties can have the following types:
   * byte<> members: Buffer objects (converted using `ByteBuffer.wrap`)
   * Numeric members: String or Number (converted using `Long.fromValue`)
   * Protobuf message members: objects (converted using the message class constructor)
 * An `MsgGabe` instance `gabe` has the following methods:
-    * `gabe.encode()` serializes the `MsgGabe` instance and returns a ByteBuffer.js ^4.1 object.
+    * `gabe.encode()` serializes the `MsgGabe` instance and returns a ByteBuffer.js ^5.0 object.
     * `gabe.toBuffer()` returns `this.encode().toBuffer()`.
 
 For example, `MsgClientChatRoomInfo` can be used as follows:
