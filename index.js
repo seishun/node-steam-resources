@@ -10,10 +10,22 @@ Steam.Internal = loadProtoFiles([
 
 Steam.GC = {
   CSGO: {
-    Internal: loadProtoFiles(['csgo/cstrike15_gcmessages.proto'])
+    Internal: loadProtoFiles([
+      'csgo/steammessages.proto',
+      'csgo/gcsystemmsgs.proto',
+      'csgo/base_gcmessages.proto',
+      'csgo/gcsdk_gcmessages.proto',
+      'csgo/econ_gcmessages.proto',
+      'csgo/cstrike15_gcmessages.proto'
+    ])
   },
   Dota: {
     Internal: loadProtoFiles([
+      'dota/steammessages.proto',
+      'dota/gcsystemmsgs.proto',
+      'dota/base_gcmessages.proto',
+      'dota/gcsdk_gcmessages.proto',
+      'dota/econ_gcmessages.proto',
       'dota/network_connection.proto',
       'dota/dota_gcmessages_common.proto',
       'dota/dota_gcmessages_client.proto',
@@ -21,12 +33,18 @@ Steam.GC = {
       'dota/dota_gcmessages_server.proto'
     ])
   },
+  TF2: {
+    Internal: loadProtoFiles([
+      'tf/steammessages.proto',
+      'tf/gcsystemmsgs.proto',
+      'tf/base_gcmessages.proto',
+      'tf/gcsdk_gcmessages.proto',
+      'tf/econ_gcmessages.proto',
+      'tf/tf_gcmessages.proto'
+    ])
+  },
   Internal: loadProtoFiles([
-    'dota/steammessages.proto',
-    'dota/gcsystemmsgs.proto',
-    'dota/base_gcmessages.proto',
-    'dota/gcsdk_gcmessages.proto',
-    'dota/econ_gcmessages.proto'
+    'gc/gc.proto'
   ])
 };
 
