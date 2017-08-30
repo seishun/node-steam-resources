@@ -36,7 +36,9 @@ exports.emitType = function(sym) {
 
 exports.emitNode = function(n) {
   if (n instanceof token_analyzer.ClassNode) {
-    emitClassNode(n);
+    if (n.emit) {
+      emitClassNode(n);
+    }
   } else if (n instanceof token_analyzer.EnumNode) {
     emitEnumNode(n);
   }
@@ -45,6 +47,9 @@ exports.emitNode = function(n) {
 function emitEnumNode(enode) {
   var obj = Steam[enode.name] = {};
   enode.childNodes.forEach(function(prop) {
+    if (!prop.emit) {
+      return;
+    }
     obj[prop.name] = prop.default.map(function(sym) {
       return obj[sym.identifier] || +sym.identifier;
     }).reduce(function(value, ident) {

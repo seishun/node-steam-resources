@@ -12,6 +12,7 @@ exports.ClassNode = function() {
 exports.PropNode = function() {
   exports.Node.call(this);
   this.default = [];
+  this.emit = true;
 };
 
 exports.EnumNode = function() {
@@ -59,6 +60,8 @@ exports.analyze = function(tokens) {
                 parent = expect(tokens, 'identifier');
               }
               
+              var removed = optional(tokens, 'identifier', 'removed');
+              
               var cnode = new exports.ClassNode();
               cnode.name = name.value;
               
@@ -68,6 +71,12 @@ exports.analyze = function(tokens) {
               
               if (parent) {
                 //cnode.parent = lookupSymbol(root, parent.value, true);
+              }
+              
+              if (removed) {
+                cnode.emit = false;
+              } else {
+                cnode.emit = true;
               }
               
               root.childNodes.push(cnode);
@@ -169,6 +178,11 @@ function parseInnerScope(tokens, parent, root) {
       
       if (obsoleteReason)
         pnode.obsolete = obsoleteReason.value;
+    }
+    
+    var removed = optional(tokens, 'identifier', 'removed');
+    if (removed) {
+      pnode.emit = false;
     }
     
     parent.childNodes.push(pnode);
