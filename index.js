@@ -5,7 +5,10 @@ Steam.Internal = loadProtoFiles([
   'steamclient/steammessages_base.proto',
   'steamclient/encrypted_app_ticket.proto',
   'steamclient/steammessages_clientserver.proto',
-  'steamclient/steammessages_clientserver_2.proto'
+  'steamclient/steammessages_clientserver_2.proto',
+  'steamclient/steammessages_clientserver_friends.proto',
+  'steamclient/steammessages_clientserver_login.proto',
+  'steamclient/steammessages_sitelicenseclient.proto'
 ]);
 
 Steam.GC = {
@@ -16,6 +19,7 @@ Steam.GC = {
       'csgo/base_gcmessages.proto',
       'csgo/gcsdk_gcmessages.proto',
       'csgo/econ_gcmessages.proto',
+      'csgo/engine_gcmessages.proto',
       'csgo/cstrike15_gcmessages.proto'
     ])
   },
@@ -25,12 +29,24 @@ Steam.GC = {
       'dota/gcsystemmsgs.proto',
       'dota/base_gcmessages.proto',
       'dota/gcsdk_gcmessages.proto',
+      'dota/econ_shared_enums.proto',
       'dota/econ_gcmessages.proto',
       'dota/network_connection.proto',
+      'dota/dota_client_enums.proto',
+      'dota/dota_shared_enums.proto',
       'dota/dota_gcmessages_common.proto',
+      'dota/dota_gcmessages_common_match_management.proto',
+      'dota/dota_gcmessages_msgid.proto',
       'dota/dota_gcmessages_client.proto',
+      'dota/dota_gcmessages_client_chat.proto',
       'dota/dota_gcmessages_client_fantasy.proto',
-      'dota/dota_gcmessages_server.proto'
+      'dota/dota_gcmessages_client_guild.proto',
+      'dota/dota_gcmessages_client_match_management.proto',
+      'dota/dota_gcmessages_client_team.proto',
+      'dota/dota_gcmessages_client_tournament.proto',
+      'dota/dota_gcmessages_client_watch.proto',
+      'dota/dota_gcmessages_server.proto',
+      'dota/dota_match_metadata.proto'
     ])
   },
   TF2: {
@@ -54,6 +70,7 @@ Steam.Unified = {
     'steamclient/steammessages_broadcast.steamclient.proto',
     'steamclient/steammessages_cloud.steamclient.proto',
     'steamclient/steammessages_credentials.steamclient.proto',
+    'steamclient/steammessages_datapublisher.steamclient.proto',
     'steamclient/steammessages_depotbuilder.steamclient.proto',
     'steamclient/steammessages_deviceauth.steamclient.proto',
     'steamclient/steammessages_econ.steamclient.proto',
@@ -64,18 +81,19 @@ Steam.Unified = {
     'steamclient/steammessages_offline.steamclient.proto',
     'steamclient/steammessages_parental.steamclient.proto',
     'steamclient/steammessages_partnerapps.steamclient.proto',
+    'steamclient/steammessages_physicalgoods.steamclient.proto',
     'steamclient/steammessages_player.steamclient.proto',
     'steamclient/steammessages_publishedfile.steamclient.proto',
     'steamclient/steammessages_secrets.steamclient.proto',
+    'steamclient/steammessages_site_license.steamclient.proto',
     'steamclient/steammessages_twofactor.steamclient.proto',
+    'steamclient/steammessages_useraccount.steamclient.proto',
     'steamclient/steammessages_video.steamclient.proto'
   ])
 };
 
 Steam.Unified.Internal.Steamworks = loadProtoFiles([
-  'dota/steammessages_cloud.steamworkssdk.proto',
-  'dota/steammessages_oauth.steamworkssdk.proto',
-  'dota/steammessages_publishedfile.steamworkssdk.proto'
+  'dota/steammessages_oauth.steamworkssdk.proto'
 ]);
 
 require('./steam_language_parser');
