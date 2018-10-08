@@ -26,7 +26,7 @@ For example, `Steam.EClanPermission.OwnerOfficerModerator` is equal to `11`.
 
 # Protobufs
 
-For each protobuf message or enum available in SteamKit2, there is an equivalently named class or enum generated using [ProtoBuf.js](https://github.com/dcodeIO/ProtoBuf.js) version [^4.1](https://docs.npmjs.com/misc/semver#caret-ranges-1-2-3-0-2-5-0-0-4). They lie in the same hierarchy as in SteamKit2, with objects for namespaces. (If you see a mismatch, consider that a bug.)
+For each protobuf message or enum available in SteamKit2, there is an equivalently named class or enum generated using [ProtoBuf.js](https://github.com/dcodeIO/ProtoBuf.js) version [^4.1](https://docs.npmjs.com/misc/semver#caret-ranges-123-025-004). They lie in the same hierarchy as in SteamKit2, with objects for namespaces. (If you see a mismatch, consider that a bug.)
 
 For example, the `CMsgGCTopCustomGamesList` message from [dota_gcmessages_common.proto](https://github.com/SteamRE/SteamKit/blob/master/Resources/Protobufs/dota/dota_gcmessages_common.proto) is available as `SteamKit2.GC.Dota.Internal.CMsgGCTopCustomGamesList` in SteamKit2 and as `Steam.GC.Dota.Internal.CMsgGCTopCustomGamesList` here.
 
