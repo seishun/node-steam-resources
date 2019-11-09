@@ -3,7 +3,7 @@ var parse = require('csv-parse/lib/sync');
 var ProtoBuf = require('protobufjs');
 var Steam = exports;
 
-var protos = parse(fs.readFileSync(__dirname + '/protogen/protos.csv', {
+var protos = parse(fs.readFileSync(__dirname + '/protobuf_gen/protos.csv', {
   encoding: 'ascii'
 }), {
   columns: true
@@ -11,7 +11,7 @@ var protos = parse(fs.readFileSync(__dirname + '/protogen/protos.csv', {
 
 // one-off
 Steam.GC = {
-  Internal: loadProtoFiles(['../protogen/gc.proto'])
+  Internal: loadProtoFiles(['../protobuf_gen/gc.proto'])
 };
 
 var namespaces = {};

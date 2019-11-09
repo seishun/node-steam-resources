@@ -2,5 +2,5 @@ node_modules
 npm-debug.log
 
 protobufs
-protogen
+protobuf_gen
 steam_language
