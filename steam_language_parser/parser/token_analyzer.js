@@ -172,6 +172,7 @@ function parseInnerScope(tokens, parent, root) {
     
     var obsolete = optional(tokens, 'identifier', 'obsolete');
     if (obsolete) {
+      // Obsolete identifiers are output when generating the language, but include a warning
       pnode.obsolete = '';
       
       var obsoleteReason = optional(tokens, 'string');
@@ -182,7 +183,16 @@ function parseInnerScope(tokens, parent, root) {
     
     var removed = optional(tokens, 'identifier', 'removed');
     if (removed) {
+      // Removed identifiers are not output when generating the language
       pnode.emit = false;
+      
+      // Consume and record the removed reason so it's available in the node graph
+      pnode.removed = '';
+      
+      var removedReason = optional(tokens, 'string');
+      
+      if (removedReason)
+        pnode.removed = removedReason.value;
     }
     
     parent.childNodes.push(pnode);
