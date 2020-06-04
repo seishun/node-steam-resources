@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "bytebuffer": "^5.0",
-    "csv-parse": "^4.0.1",
+    "csv-parse": "^4.4.6",
     "protobufjs": "^4.1"
   },
   "repository": {
